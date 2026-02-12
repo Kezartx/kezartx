@@ -369,4 +369,117 @@ a {
 
 .subscription__plan.active .subscription__plan-button {
     background: #9F3919;
+
+}
+
+/* ============== */
+/* АДАПТИВ ТОЛЬКО ДЛЯ ТЕЛЕФОНА */
+/* ============== */
+
+@media (max-width: 768px) {
+
+    /* 1. КОНТЕЙНЕРЫ — на всю ширину, без отступов по краям */
+    [class*="__container"] {
+        max-width: 100%;
+        padding-inline: 20px;
+    }
+
+    /* 2. ШАПКА — не разъезжается */
+    .header__nav {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .header__list {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .header__button {
+        padding: 12px 30px;
+    }
+
+    /* 3. HERO — картинка уходит вниз */
+    .hero__container {
+        display: flex;
+        flex-direction: column;
+    }
+    .hero__content {
+        max-width: 100%;
+        padding-block: 40px;
+        order: 1;
+    }
+    .hero__image {
+        position: static;
+        order: 0;
+        text-align: center;
+    }
+    .hero__image img {
+        max-width: 100%;
+        height: auto;
+    }
+    .hero__title {
+        font-size: 48px;
+        line-height: 52px;
+    }
+    .hero__buttons {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    /* 4. ЛОГОТИПЫ КОМПАНИЙ */
+    .companies__list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    /* 5. FEATURES — блоки друг под другом */
+    .feature {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    .feature__content {
+        max-width: 100%;
+        align-items: center;
+    }
+    .feature__title {
+        font-size: 36px;
+    }
+    .feature:nth-child(2) {
+        flex-direction: column-reverse;
+    }
+
+    /* 6. MINI-FEATURES — сетка в 1 колонку */
+    .mini-features__container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    /* 7. SUBSCRIPTION — ЗАГОЛОВОК + ТАБЫ */
+    .subscription__header {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    .subscription__title {
+        font-size: 40px;
+        line-height: 48px;
+    }
+
+    /* 8. ПЛАНЫ ПОДПИСОК — СЕТКА 1 КОЛОНКА */
+    .subscription__plans {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* 9. ВСЕ КАРТОЧКИ — растянуть */
+    .subscription__plan {
+        width: 100%;
+    }
+
+    /* 10. ТЕКСТ — меньше */
+    h1, h2, h3, p {
+        word-break: break-word;
+    }
+
 }
