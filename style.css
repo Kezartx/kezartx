@@ -373,88 +373,122 @@ a {
 }
 
 /* ============== */
-/* АДАПТИВ ТОЛЬКО ДЛЯ ТЕЛЕФОНА */
+/* АДАПТИВ ПОД ТВОЮ ВЕРСТКУ */
 /* ============== */
 
 @media (max-width: 768px) {
 
-    /* 1. КОНТЕЙНЕРЫ — на всю ширину, без отступов по краям */
+    /* ----- 1. КОНТЕЙНЕРЫ ----- */
     [class*="__container"] {
-        max-width: 100%;
-        padding-inline: 20px;
+        max-width: 100% !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
     }
 
-    /* 2. ШАПКА — не разъезжается */
+    /* ----- 2. ШАПКА ----- */
     .header__nav {
         flex-wrap: wrap;
+        justify-content: center;
         gap: 15px;
     }
     .header__list {
         gap: 20px;
-        flex-wrap: wrap;
+        justify-content: center;
     }
     .header__button {
         padding: 12px 30px;
     }
 
-    /* 3. HERO — картинка уходит вниз */
+    /* ----- 3. HERO ----- */
     .hero__container {
         display: flex;
         flex-direction: column;
     }
     .hero__content {
         max-width: 100%;
+        order: 2;
         padding-block: 40px;
-        order: 1;
     }
     .hero__image {
-        position: static;
-        order: 0;
-        text-align: center;
-    }
-    .hero__image img {
+        position: static !important;
+        order: 1;
         max-width: 100%;
         height: auto;
+        margin-top: 20px;
     }
     .hero__title {
-        font-size: 48px;
-        line-height: 52px;
+        font-size: 48px !important;
+        line-height: 52px !important;
     }
     .hero__buttons {
         flex-wrap: wrap;
-        gap: 20px;
     }
 
-    /* 4. ЛОГОТИПЫ КОМПАНИЙ */
+    /* ----- 4. КОМПАНИИ ----- */
     .companies__list {
         flex-wrap: wrap;
         justify-content: center;
         gap: 30px;
     }
 
-    /* 5. FEATURES — блоки друг под другом */
-    .feature {
+    /* ----- 5. FEATURES ----- */
+    .features__container {
+        display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 50px;
+    }
+    .feature {
+        flex-direction: column !important;
         text-align: center;
+        gap: 30px;
     }
     .feature__content {
         max-width: 100%;
         align-items: center;
     }
     .feature__title {
-        font-size: 36px;
+        font-size: 36px !important;
     }
-    .feature:nth-child(2) {
-        flex-direction: column-reverse;
+    .features:has(.feature:nth-child(2)) .feature {
+        flex-direction: column-reverse !important;
     }
 
-    /* 6. MINI-FEATURES — сетка в 1 колонку */
+    /* ----- 6. MINI-FEATURES ----- */
     .mini-features__container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 50px;
     }
 
+    /* ----- 7. SUBSCRIPTION ----- */
+    .subscription__header {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .subscription__title {
+        font-size: 40px !important;
+        line-height: 48px !important;
+    }
+    .subscription__tabs {
+        justify-content: center;
+    }
+    .subscription__plans {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+    }
+    .subscription__plan {
+        width: 100%;
+    }
+
+    /* ----- 8. ВСЁ ОСТАЛЬНОЕ ----- */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    h1, h2, h3, p {
+        word-break: break-word;
+    }
+}
     /* 7. SUBSCRIPTION — ЗАГОЛОВОК + ТАБЫ */
     .subscription__header {
         flex-direction: column;
@@ -483,3 +517,4 @@ a {
     }
 
 }
+
